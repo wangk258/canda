@@ -9,8 +9,8 @@
         <version>1.0-SNAPSHOT</version>
     </parent>
 
-    <groupId>com.canda.api</groupId>
-    <artifactId>api</artifactId>
+    <groupId>com.canda.test</groupId>
+    <artifactId>test</artifactId>
     <version>1.0-SNAPSHOT</version>
 
 
