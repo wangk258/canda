@@ -23,7 +23,7 @@ public class CyclicBarrierTest implements Runnable{
     //创建3个CyclicBarrier对象,执行完后执行当前类的run方法
     private CyclicBarrier cb=new CyclicBarrier(3,this);
     //保存每个学生的平均成绩
-    private ConcurrentHashMap<String, Integer> map=new ConcurrentHashMap<String,Integer>();
+    private ConcurrentHashMap<String, Integer> map=new ConcurrentHashMap<>();
     
     public void count(){
         for(int i=0;i<3;i++){

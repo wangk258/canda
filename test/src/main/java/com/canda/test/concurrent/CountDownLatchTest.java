@@ -25,12 +25,12 @@ public class CountDownLatchTest {
             executor.execute(baseCountDownLatch);
         }
         countDownLatch.await();
-        for (BaseCountDownLatch baseCountDownLatch: list) {
+        for (BaseCountDownLatch baseCountDownLatch : list) {
             if (!baseCountDownLatch.isStarted()) {
                 return false;
             }
-         }
-         return true;
+        }
+        return true;
     }
 
     public static void main(String[] args) throws InterruptedException {

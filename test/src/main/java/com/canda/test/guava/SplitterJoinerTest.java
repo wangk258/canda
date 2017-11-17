@@ -19,7 +19,7 @@ public class SplitterJoinerTest {
 
     private static void splitter() {
         String str = ",,a,b, ,c ,, d ,e,f,,";
-        List<String> list = Splitter.on(",").omitEmptyStrings().splitToList(str);
+        List<String> list = Splitter.on(",").omitEmptyStrings().trimResults().splitToList(str);
         System.out.println(list.toString());
     }
 
