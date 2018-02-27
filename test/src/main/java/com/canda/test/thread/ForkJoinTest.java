@@ -15,18 +15,19 @@ import java.util.concurrent.*;
 public class ForkJoinTest {
 
     private static final long start = 1;
-    private static final long end = 1000000000;
+    private static final long end = 10;
 
-    public static void main(String[] args) {
+    public static void main(String[] args) throws InterruptedException {
         testForkJoin();
         testFor();
     }
 
-    private static void testFor() {
+    private static void testFor() throws InterruptedException {
         long currentDate = System.currentTimeMillis();
         long sum = 0;
         for (long i = start; i <= end; i++) {
             sum += i;
+            TimeUnit.SECONDS.sleep(1);
         }
         System.out.println("value：" + sum + "   for time: " + (System.currentTimeMillis() - currentDate));
     }
@@ -74,6 +75,11 @@ public class ForkJoinTest {
             if (canCompute) {
                 for (long i = start; i <= end; i++) {
                     sum += i;
+                    try {
+                        TimeUnit.SECONDS.sleep(1);
+                    } catch (InterruptedException e) {
+                        e.printStackTrace();
+                    }
                 }
             } else {
                 long middle = (end + start) / 2;
