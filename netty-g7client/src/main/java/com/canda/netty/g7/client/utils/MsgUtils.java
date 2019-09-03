@@ -51,4 +51,9 @@ public class MsgUtils {
         return sb.toString().toUpperCase().trim();
     }
 
+    public static void main(String[] args) {
+        String str = "7e0500004101509001153502a33eb8cb016742d906c0e18c0714015901581908011700330000006a840c071f068a9ee075d6284301012202005a01010e2722147e";
+        System.out.println(formatHexString(str));
+    }
+
 }

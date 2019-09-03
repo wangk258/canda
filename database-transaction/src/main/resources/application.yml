@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: g7lite-protocol-service
+  profiles:
+    active: test
+
+server:
+  port: 8085
+
+mybatis-plus:
+  type-aliases-package: com.chinaway.g7lite.protocol.service.pojo.entity
+  mapper-locations: classpath:mapper/*Mapper.xml
+  check-config-location: true

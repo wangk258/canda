@@ -6,6 +6,8 @@ import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.List;
 
+import org.apache.commons.collections4.CollectionUtils;
+
 import com.canda.netty.g7.client.codec.ClientEncoder;
 import com.canda.netty.g7.client.enums.TargetAddressEnum;
 import com.canda.netty.g7.client.handler.ClientHandler;
@@ -16,7 +18,6 @@ import io.netty.channel.nio.NioEventLoopGroup;
 import io.netty.channel.socket.nio.NioSocketChannel;
 import io.netty.handler.codec.string.StringEncoder;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.CollectionUtils;
 
 @Slf4j
 public abstract class AbstractClient {
@@ -91,6 +92,10 @@ public abstract class AbstractClient {
             b[i] = (byte)Integer.parseInt(hexStr.substring(2 * i, 2 * i + 2), 16);
         }
         return b;
+    }
+
+    protected void send(Channel channel, String hexStr) {
+        channel.writeAndFlush(channel.alloc().buffer().writeBytes(HexString2Bytes(hexStr)));
     }
 
     protected void sendByFile(Channel channel, String filePath, long sleep) throws Exception {

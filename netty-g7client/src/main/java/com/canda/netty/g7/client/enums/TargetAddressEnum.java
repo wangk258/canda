@@ -15,6 +15,12 @@ public enum TargetAddressEnum {
     FFTP_TEST("172.22.35.223", 16533),
 
     SMART_LOCAL("127.0.0.1", 16531),
+
+    GATEWAY_LOCAL("127.0.0.1", 2948),
+    GATEWAY_PROFILE_PRO("127.0.0.1", 2941),
+    GATEWAY_TEST("172.22.32.230", 16531),
+
+    GREAT_TEST("172.22.41.216", 3214),
     ;
 
     private final String ip;

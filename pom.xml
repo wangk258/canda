@@ -11,13 +11,12 @@
 
     <modules>
         <module>api</module>
-        <module>service</module>
-        <module>dao</module>
-        <module>pojo</module>
         <module>common</module>
         <module>test</module>
         <module>hbase</module>
         <module>netty-g7client</module>
+        <module>database-transaction</module>
+        <module>netty-server</module>
     </modules>
 
     <properties>
@@ -115,7 +114,6 @@
             <groupId>junit</groupId>
             <artifactId>junit</artifactId>
             <version>3.8.1</version>
-            <scope>com.canda.pojo.test</scope>
         </dependency>
 
         <dependency>
@@ -128,12 +126,6 @@
             <groupId>io.netty</groupId>
             <artifactId>netty-all</artifactId>
             <version>4.1.15.Final</version>
-        </dependency>
-
-        <dependency>
-            <groupId>com.google.guava</groupId>
-            <artifactId>guava</artifactId>
-            <version>19.0</version>
         </dependency>
 
     </dependencies>
@@ -194,10 +186,24 @@
         </plugins>
     </build>
 
+    <!--<distributionManagement>-->
+        <!--<repository>-->
+            <!--<id>aliYun</id>-->
+            <!--<url>http://maven.aliyun.com/nexus/content/groups/public/</url>-->
+        <!--</repository>-->
+    <!--</distributionManagement>-->
+
+    <!-- maven私服 -->
     <distributionManagement>
+        <snapshotRepository>
+            <id>libs-snapshot-local</id>
+            <name>libs-snapshot-local</name>
+            <url>http://repo.chinawayltd.com/artifactory/libs-snapshot-local</url>
+        </snapshotRepository>
         <repository>
-            <id>aliYun</id>
-            <url>http://maven.aliyun.com/nexus/content/groups/public/</url>
+            <id>libs-release-local</id>
+            <name>libs-release-local</name>
+            <url>http://repo.chinawayltd.com/artifactory/libs-release-local</url>
         </repository>
     </distributionManagement>
 

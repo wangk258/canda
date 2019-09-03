@@ -1,15 +1,11 @@
 package com.canda.netty.g7.client;
 
-import java.nio.charset.StandardCharsets;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.util.List;
-
 import com.canda.netty.g7.client.enums.TargetAddressEnum;
+
 import io.netty.channel.Channel;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.commons.collections4.CollectionUtils;
-import org.apache.commons.lang3.StringUtils;
+
+import java.net.InetSocketAddress;
 
 /**
  * @author Wangkun
@@ -21,12 +17,17 @@ public class Client1 extends AbstractClient {
     @Override
     protected void send(Channel channel) throws Exception {
         // 给服务器发消息
-        sendByFile(channel, "/work/temp/fftp/msg.log", 100);
+        // sendByFile(channel, "/work/message/fftp/msg.log", 100);
+//        while (true) {
+//            sendByFile(channel, "/work/message/gateway/offline.log", 1000);
+//        }
+        sendByFile(channel, "/work/message/gnns/0200.msg", 100);
+        // sendByFile(channel, "/work/message/gateway/bigMsg.log", 200);
+        // sendByFile(channel, "/work/message/gateway/decoder.log", 100);
     }
 
     public static void main(String[] args) {
-        // new Client1().start(new InetSocketAddress("172.22.34.228", 2946));
-        new Client1().start(TargetAddressEnum.FFTP_TEST);
+         new Client1().start(new InetSocketAddress("127.0.0.1", 2946));
     }
 
 }
