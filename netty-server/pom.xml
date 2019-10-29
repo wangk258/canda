@@ -22,7 +22,7 @@
         <joda-time.version>2.9.9</joda-time.version>
         <logbak.version>1.2.3</logbak.version>
         <logstash-logback-encoder.version>5.1</logstash-logback-encoder.version>
-        <netty-all.version>4.1.24.Final</netty-all.version>
+        <netty-all.version>4.1.42.Final</netty-all.version>
         <jackson-databind.version>2.9.6</jackson-databind.version>
     </properties>
 
