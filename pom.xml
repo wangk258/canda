@@ -17,6 +17,7 @@
         <module>netty-g7client</module>
         <module>database-transaction</module>
         <module>netty-server</module>
+        <module>left-right-tree</module>
     </modules>
 
     <properties>

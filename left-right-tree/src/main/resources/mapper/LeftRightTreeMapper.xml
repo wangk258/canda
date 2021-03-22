@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="dao.LeftRightTreeDao">
+
+    <!-- 通用查询映射结果 -->
+    <resultMap id="resultMap" type="entity.LeftRightTree">
+        <id column="id" property="id"/>
+        <result column="parent_id" property="parentId"/>
+        <result column="type" property="type"/>
+        <result column="level" property="level"/>
+        <result column="left_value" property="leftValue"/>
+        <result column="right_value" property="rightValue"/>
+        <result column="name" property="name"/>
+        <result column="remark" property="remark"/>
+        <result column="create_time" property="createTime"/>
+        <result column="update_time" property="updateTime"/>
+    </resultMap>
+
+    <!-- 通用查询结果列 -->
+    <sql id="Base_Column_List">
+        imei, parent_id, `type`, `level`, left_value, right_value, `name`, remark, createTime, updateTime
+    </sql>
+
+    <update id="updateLeftValue">
+        update t_aiot_left_right_tree
+        set left_value = left_value + #{value, jdbcType=INTEGER}
+        where left_value > #{begin,jdbcType=INTEGER} and `type` = #{type, jdbcType=INTEGER}
+    </update>
+    <update id="updateRightValue">
+        update t_aiot_left_right_tree
+        set right_value = right_value + #{value, jdbcType=INTEGER}
+        where right_value > #{begin,jdbcType=INTEGER} and `type` = #{type, jdbcType=INTEGER}
+    </update>
+    <select id="childrenCount" resultType="java.lang.Integer">
+        select count(*) as childCount from t_aiot_left_right_tree where left_value > #{leftValue,jdbcType=INTEGER} and right_value
+        #{rightValue,jdbcType=INTEGER}
+    </select>
+
+</mapper>

@@ -1,0 +1,7 @@
+server:
+  port: 8888
+
+mybatis-plus:
+  type-aliases-package: com.chinway.aiot.gateway.platform.server.pojo.entity
+  mapper-locations: classpath:mapper/*Mapper.xml
+  check-config-location: true
