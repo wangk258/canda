@@ -50,3 +50,4 @@ hs_err_pid*
 /nbdist/
 /.nb-gradle/
 target/
+/canda.iml
